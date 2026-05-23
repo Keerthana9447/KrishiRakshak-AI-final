@@ -1,0 +1,82 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+    "eslint.workingDirectories": ["frontend"],
+    "files.associations": {
+      "*.jsx": "javascriptreact"
+    },
+    "tailwindCSS.includeLanguages": {
+      "javascript": "javascript",
+      "javascriptreact": "javascriptreact"
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "dbaeumer.vscode-eslint",
+      "ritwickdey.liveserver"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: FastAPI Backend",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["main:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder}/backend",
+        "env": { "PYTHONPATH": "${workspaceFolder}/backend" },
+        "jinja": true
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Backend",
+        "type": "shell",
+        "command": "cd backend && python main.py",
+        "group": "build",
+        "presentation": { "panel": "new", "reveal": "always" }
+      },
+      {
+        "label": "Start Frontend",
+        "type": "shell",
+        "command": "cd frontend && npm run dev",
+        "group": "build",
+        "presentation": { "panel": "new", "reveal": "always" }
+      },
+      {
+        "label": "Install All Dependencies",
+        "type": "shell",
+        "command": "npm install && cd frontend && npm install",
+        "group": "build",
+        "presentation": { "panel": "shared" }
+      },
+      {
+        "label": "Setup Python venv",
+        "type": "shell",
+        "command": "cd backend && python -m venv .venv && .venv/bin/pip install -r requirements.txt",
+        "group": "build",
+        "presentation": { "panel": "shared" }
+      }
+    ]
+  }
+}

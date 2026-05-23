@@ -1,0 +1,24 @@
+{
+  "image_processor_type": "MobileNetV2ImageProcessor",
+  "do_normalize": true,
+  "do_resize": true,
+  "do_center_crop": true,
+  "image_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "image_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "resample": 3,
+  "size": {
+    "shortest_edge": 256
+  },
+  "crop_size": {
+    "height": 224,
+    "width": 224
+  }
+}
