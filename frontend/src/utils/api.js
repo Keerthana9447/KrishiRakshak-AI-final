@@ -2,8 +2,9 @@ import axios from 'axios'
 
 // VITE_API_URL is the base server URL, e.g. "https://krishirakshak-ai-8.onrender.com"
 // All FastAPI routes are under /api prefix
-const BASE_URL = import.meta.env.VITE_API_URL || ''
-
+const BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://krishirakshak-ai-final.onrender.com/api'
 const api = axios.create({
   baseURL: `${BASE_URL}/api`,
   timeout: 60000,  // 60s — AI Vision APIs can take 15-25 seconds
